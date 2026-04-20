@@ -2,54 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Helix Compute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0f1115;
-      color: #e6e6e6;
-      text-align: center;
-      padding: 60px;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-weight: 400;
-      color: #aaa;
-      margin-bottom: 40px;
-    }
-    p {
-      max-width: 600px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-    }
-    .footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
+
+  <!-- SEO -->
+  <title>Helix Compute — Selective Compute Engine</title>
+  <meta name="description" content="Helix Compute reduces compute cost by processing only what changed. Achieve 95% compute reduction with exact reconstruction.">
+  <meta name="keywords" content="compute optimization, data processing, delta compute, infrastructure efficiency, streaming data, selective compute">
+  <meta name="author" content="Helix Compute">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Helix Compute — Selective Compute">
+  <meta property="og:description" content="Stop recomputing everything. Process only what changed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://helixcompute.io">
+  <meta property="og:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Helix Compute">
+  <meta name="twitter:description" content="Selective Compute Engine">
+  <meta name="twitter:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
+
+  <link rel="canonical" href="https://helixcompute.io">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Helix Compute</h1>
-<h2>Selective Compute</h2>
+  <!-- HERO -->
+  <section class="hero">
 
-<p>
-Stop recomputing everything.
-</p>
+    <picture>
+      <source srcset="assets/logo/helix_compute_logo.webp" type="image/webp">
+      <img src="assets/logo/helix_compute_logo.png" alt="Helix Compute Logo" class="logo">
+    </picture>
 
-<p>
-Helix Compute processes only what changed — reducing compute cost,
-increasing throughput, and unlocking more capacity from existing infrastructure.
-</p>
+    <h1>Helix Compute</h1>
+    <h2>Selective Compute Engine</h2>
 
-<div class="footer">
-  A product of Evo Engineering
-</div>
+    <p class="tagline">
+      Stop recomputing everything.
+    </p>
+
+    <p class="description">
+      Helix Compute processes only what changed — reducing compute cost, minimizing data transfer, and unlocking unused capacity in existing infrastructure.
+    </p>
+
+    <a href="https://github.com/cweedman1/helixcompute-demo" class="btn">
+      Run the Demo
+    </a>
+
+    <p class="subtle">
+      Local execution. Reproducible results.
+    </p>
+
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof-section">
+
+    <div class="proof-box">
+      <h3>Example Output</h3>
+
+      <pre>
+Dataset: AEP_hourly.json
+
+Data Reduction: 98%
+Compute Reduction: 95%
+
+Validation: SHA-256 match
+Execution Time: ~1.2s
+      </pre>
+    </div>
+
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+
+    <h3>How It Works</h3>
+
+    <div class="grid">
+
+      <div class="card">
+        <h4>Detect Changes</h4>
+        <p>Identify only the modified portions of a dataset.</p>
+      </div>
+
+      <div class="card">
+        <h4>Process Delta</h4>
+        <p>Run compute only on changed data instead of full pipelines.</p>
+      </div>
+
+      <div class="card">
+        <h4>Reconstruct State</h4>
+        <p>Rebuild exact full output with zero approximation.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- USE CASES -->
+  <section class="use">
+
+    <h3>Where It Applies</h3>
+
+    <p>
+      Helix Compute is designed for systems where data is large and changes are small:
+    </p>
+
+    <ul>
+      <li>Streaming data pipelines</li>
+      <li>Telemetry and infrastructure monitoring</li>
+      <li>Financial and time-series systems</li>
+      <li>Large-scale JSON / log processing</li>
+    </ul>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      A product of Evo Engineering
+    </p>
+  </footer>
 
 </body>
 </html>
