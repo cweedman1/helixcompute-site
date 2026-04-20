@@ -4,130 +4,165 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <title>Helix Compute — Selective Compute Engine</title>
-  <meta name="description" content="Helix Compute reduces compute cost by processing only what changed. Achieve 95% compute reduction with exact reconstruction.">
-  <meta name="keywords" content="compute optimization, data processing, delta compute, infrastructure efficiency, streaming data, selective compute">
-  <meta name="author" content="Helix Compute">
+  <title>Helix Compute Systems — Selective Compute Engine for Delta Processing</title>
+  <meta name="description" content="Helix Compute Systems reduces compute cost by processing only what changed. Selective compute for data pipelines, telemetry, time-series systems, and large-scale JSON or log processing.">
+  <meta name="keywords" content="selective compute, compute optimization, delta processing, data pipelines, telemetry systems, parquet alternative, delta lake alternative, infrastructure efficiency">
+  <meta name="author" content="Helix Compute Systems">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Helix Compute — Selective Compute">
+  <meta property="og:title" content="Helix Compute Systems — Selective Compute Engine">
   <meta property="og:description" content="Stop recomputing everything. Process only what changed.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://helixcompute.io">
   <meta property="og:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Helix Compute">
-  <meta name="twitter:description" content="Selective Compute Engine">
+  <meta name="twitter:title" content="Helix Compute Systems — Selective Compute Engine">
+  <meta name="twitter:description" content="Reduce compute cost by processing only what changed.">
   <meta name="twitter:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
 
   <link rel="canonical" href="https://helixcompute.io">
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="brand" aria-label="Helix Compute Systems home">
+        <picture>
+          <source srcset="assets/logo/helix_logo_icon.webp" type="image/webp">
+          <img src="assets/logo/helix_logo_icon.png" alt="Helix Compute Systems logo" class="brand-logo">
+        </picture>
+        <span class="brand-text">Helix Compute Systems</span>
+      </a>
 
-    <picture>
-      <source srcset="assets/logo/helix_compute_logo.webp" type="image/webp">
-      <img src="assets/logo/helix_compute_logo.png" alt="Helix Compute Logo" class="logo">
-    </picture>
+      <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#compare">Compare</a>
+        <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank" rel="noopener noreferrer">Demo Repo</a>
+      </div>
+    </nav>
+  </header>
 
-    <h1>Helix Compute</h1>
-    <h2>Selective Compute Engine</h2>
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
 
-    <p class="tagline">
-      Stop recomputing everything.
-    </p>
+      <div class="hero-content">
+        <p class="eyebrow">Selective Compute Engine</p>
+        <h1>Stop recomputing everything.</h1>
+        <p class="hero-subtitle">
+          Process only what changed.
+        </p>
 
-    <p class="description">
-      Helix Compute processes only what changed — reducing compute cost, minimizing data transfer, and unlocking unused capacity in existing infrastructure.
-    </p>
+        <p class="hero-description">
+          Helix Compute Systems is a compute optimization layer that reduces redundant processing by operating only on data deltas — lowering compute cost, increasing throughput, and extracting more capacity from existing infrastructure.
+        </p>
 
-    <a href="https://github.com/cweedman1/helixcompute-demo" class="btn">
-      Run the Demo
-    </a>
+        <div class="hero-actions">
+          <a href="https://github.com/cweedman1/helixcompute-demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Run the Demo
+          </a>
+          <a href="#compare" class="btn btn-secondary">
+            See Comparisons
+          </a>
+        </div>
 
-    <p class="subtle">
-      Local execution. Reproducible results.
-    </p>
+        <p class="hero-trust">
+          Runs locally. No black box. Reproducible results.
+        </p>
+      </div>
+    </section>
 
-  </section>
-
-  <!-- PROOF -->
-  <section class="proof-section">
-
-    <div class="proof-box">
-      <h3>Example Output</h3>
-
-      <pre>
-Dataset: AEP_hourly.json
+    <section class="proof-section">
+      <div class="section-inner">
+        <div class="proof-box">
+          <h2>Example Output</h2>
+          <pre>Dataset: AEP_hourly.json
 
 Data Reduction: 98%
 Compute Reduction: 95%
 
 Validation: SHA-256 match
-Execution Time: ~1.2s
-      </pre>
-    </div>
-
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how">
-
-    <h3>How It Works</h3>
-
-    <div class="grid">
-
-      <div class="card">
-        <h4>Detect Changes</h4>
-        <p>Identify only the modified portions of a dataset.</p>
+Execution Time: ~1.2s</pre>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h4>Process Delta</h4>
-        <p>Run compute only on changed data instead of full pipelines.</p>
+    <section class="how" id="how">
+      <div class="section-inner">
+        <h2>How It Works</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Detect Changes</h3>
+            <p>Identify only the modified portions of a dataset or state stream.</p>
+          </article>
+
+          <article class="card">
+            <h3>Process Delta</h3>
+            <p>Run compute only on changed data instead of reprocessing full pipelines.</p>
+          </article>
+
+          <article class="card">
+            <h3>Reconstruct State</h3>
+            <p>Rebuild exact output deterministically with no approximation layer.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h4>Reconstruct State</h4>
-        <p>Rebuild exact full output with zero approximation.</p>
+    <section class="use" id="use-cases">
+      <div class="section-inner narrow">
+        <h2>Where It Applies</h2>
+
+        <p class="section-copy">
+          Helix Compute Systems is designed for systems where data volume is large and incremental change is relatively small.
+        </p>
+
+        <ul class="use-list">
+          <li>Streaming data pipelines</li>
+          <li>Telemetry and monitoring systems</li>
+          <li>Time-series and financial workloads</li>
+          <li>Large-scale JSON and log processing</li>
+        </ul>
       </div>
+    </section>
 
-    </div>
+    <section class="compare" id="compare">
+      <div class="section-inner">
+        <h2>Compared to Existing Systems</h2>
 
-  </section>
+        <div class="grid compare-grid">
+          <article class="card">
+            <h3>Delta Lake</h3>
+            <p>
+              Delta Lake tracks changes in datasets, but compute workflows still often reprocess substantial portions of data. Helix Compute Systems is focused on reducing the actual amount of work executed.
+            </p>
+          </article>
 
-  <!-- USE CASES -->
-  <section class="use">
+          <article class="card">
+            <h3>Parquet</h3>
+            <p>
+              Parquet improves storage efficiency and retrieval patterns, but it is not a compute reduction layer. Helix Compute Systems targets the workload itself, not just the file format.
+            </p>
+          </article>
 
-    <h3>Where It Applies</h3>
+          <article class="card">
+            <h3>Traditional Pipelines</h3>
+            <p>
+              Most pipelines rerun full datasets on every cycle. Helix Compute Systems eliminates redundant processing by executing only against the delta.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <p>
-      Helix Compute is designed for systems where data is large and changes are small:
-    </p>
-
-    <ul>
-      <li>Streaming data pipelines</li>
-      <li>Telemetry and infrastructure monitoring</li>
-      <li>Financial and time-series systems</li>
-      <li>Large-scale JSON / log processing</li>
-    </ul>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>
-      A product of Evo Engineering
-    </p>
+  <footer class="site-footer">
+    <p>© Helix Compute Systems — A product of Evo Engineering</p>
   </footer>
 
 </body>
 </html>
+
