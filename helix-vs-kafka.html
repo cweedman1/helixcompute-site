@@ -4,16 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Delta Lake vs Helix Compute | Storage vs Execution</title>
+  <title>Helix vs Kafka | Compute vs Streaming Systems</title>
 
-  <meta name="description" content="Delta Lake tracks data changes. Helix Compute eliminates redundant computation. Understand the difference between data versioning and execution optimization." />
-
-  <meta name="keywords" content="Delta Lake vs Helix, data versioning, incremental processing, compute optimization, data engineering" />
+  <meta
+    name="description"
+    content="Kafka moves data. Helix optimizes compute. Learn how Helix reduces redundant execution in streaming pipelines and event-driven systems."
+  />
+  <meta
+    name="keywords"
+    content="Kafka vs Helix, streaming pipelines, event processing, compute optimization, incremental processing, data engineering"
+  />
 
   <meta name="author" content="Helix Compute Systems" />
   <meta name="robots" content="index, follow" />
 
-  <link rel="canonical" href="https://helixcompute.io/delta-vs-helix.html" />
+  <link rel="canonical" href="https://helixcompute.io/helix-vs-kafka.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Helix vs Kafka" />
+  <meta property="og:description" content="Kafka moves events. Helix optimizes computation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://helixcompute.io/helix-vs-kafka.html" />
+  <meta property="og:image" content="https://helixcompute.io/assets/images/hero-kafka.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Helix vs Kafka" />
+  <meta name="twitter:description" content="Streaming moves data. It does not reduce compute." />
+  <meta name="twitter:image" content="https://helixcompute.io/assets/images/hero-kafka.webp" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -41,22 +59,22 @@
 </header>
 
 <!-- HERO -->
-<section class="hero hero-delta">
+<section class="hero hero-kafka">
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
 
     <p class="eyebrow">COMPARISON</p>
 
-    <h1>Delta Lake vs Helix Compute</h1>
+    <h1>Helix vs Kafka</h1>
 
     <p class="hero-subtitle">
-      Tracking change is not the same as optimizing compute.
+      Streaming moves data. It does not reduce compute.
     </p>
 
     <p class="hero-description">
-      Delta Lake improves how data is stored and versioned.  
-      Helix Compute Systems improves how computation is executed.
+      Kafka and streaming systems move events efficiently.  
+      Helix Compute Systems optimizes how that data is processed—eliminating unnecessary computation.
     </p>
 
   </div>
@@ -66,32 +84,33 @@
 <section class="proof-section">
   <div class="section-inner narrow">
 
-    <!-- Core difference -->
+    <!-- Core Difference -->
     <div class="card">
-      <h2>The core difference</h2>
+      <h2>The difference</h2>
 
       <p class="section-copy">
-        Delta Lake focuses on data state—tracking changes, maintaining versions, and enabling time travel across datasets.
+        Kafka is an event streaming platform. It focuses on transporting data reliably and at scale.
       </p>
 
       <p class="section-copy" style="margin-top: 1rem;">
-        Helix focuses on compute behavior—executing only where change occurs and eliminating unnecessary processing entirely.
+        Helix operates at a different layer:
+        <strong>it determines whether computation needs to happen at all—and skips it when it doesn’t.</strong>
       </p>
     </div>
 
-    <!-- Key difference -->
+    <!-- Key Difference -->
     <div class="card" style="margin-top: 1.5rem;">
       <h3>The key difference</h3>
 
       <p class="section-copy">
-        Delta Lake knows what changed.  
-        Helix ensures only those changes are computed.
+        Kafka ensures data arrives.  
+        Helix ensures you only process what changed.
       </p>
     </div>
 
-    <!-- What Delta does well -->
+    <!-- What Kafka does -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>What Delta Lake does well</h3>
+      <h3>What Kafka does well</h3>
 
       <ul style="
         margin-top: 1rem;
@@ -102,23 +121,23 @@
         margin-right: auto;
         text-align: left;
       ">
-        <li>Tracks data changes (ACID logs)</li>
-        <li>Maintains versioned datasets</li>
-        <li>Improves reliability and consistency</li>
-        <li>Supports time travel queries</li>
+        <li>High-throughput event streaming</li>
+        <li>Decoupled system architecture</li>
+        <li>Durable, replayable event logs</li>
+        <li>Scalable real-time data pipelines</li>
       </ul>
     </div>
 
-    <!-- Where Delta stops -->
+    <!-- Where Kafka stops -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>Where Delta Lake stops</h3>
+      <h3>Where Kafka stops</h3>
 
       <p class="section-copy">
-        Even with precise data tracking, pipelines still execute transformations across entire datasets.
+        Kafka moves events—but downstream systems still process large portions of data—even when most of it hasn’t changed.
       </p>
 
       <p class="section-copy" style="margin-top: 1rem;">
-        The system knows what changed—but still processes everything anyway.
+        In many pipelines, compute is applied broadly rather than selectively.
       </p>
     </div>
 
@@ -127,11 +146,11 @@
       <h3>Where Helix fits</h3>
 
       <p class="section-copy">
-        Helix binds computation directly to change—executing only where updates occur.
+        Helix Compute Systems operates alongside streaming pipelines as a compute layer—executing only where change occurs.
       </p>
 
       <p class="section-copy" style="margin-top: 1rem;">
-        Instead of full recompute cycles, Helix reduces execution to only what is necessary.
+        It complements Kafka by reducing the amount of work performed after data is delivered.
       </p>
     </div>
 
@@ -148,10 +167,10 @@
         margin-right: auto;
         text-align: left;
       ">
-        <li>Smaller execution scope</li>
-        <li>Faster pipelines</li>
+        <li>Significant reduction in compute overhead</li>
+        <li>More efficient streaming pipelines</li>
         <li>Lower infrastructure cost</li>
-        <li>Higher system efficiency</li>
+        <li>Faster downstream processing</li>
       </ul>
     </div>
 

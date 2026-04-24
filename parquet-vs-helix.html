@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Parquet vs Helix Compute | Storage vs Execution</title>
+
+  <meta name="description" content="Parquet optimizes storage. Helix optimizes execution. Understand the difference between data efficiency and compute efficiency." />
+
+  <meta name="keywords" content="Parquet vs Helix, columnar storage, compute optimization, data pipelines, ETL efficiency, data engineering" />
+
+  <meta name="author" content="Helix Compute Systems" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://helixcompute.io/parquet-vs-helix.html" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="./" class="brand">
+      <picture>
+        <source srcset="assets/logo/helix_logo_icon.webp" type="image/webp">
+        <img src="assets/logo/helix_logo_icon.png" class="brand-logo" alt="Helix logo">
+      </picture>
+      <span class="brand-text">Helix Compute Systems</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="./#how">How It Works</a>
+      <a href="./#use-cases">Use Cases</a>
+      <a href="./#compare">Compare</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank">Demo Repo</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero hero-parquet">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">COMPARISON</p>
+
+    <h1>Parquet vs Helix Compute</h1>
+
+    <p class="hero-subtitle">
+      Efficient storage doesn’t mean efficient computation.
+    </p>
+
+    <p class="hero-description">
+      Parquet reduces how much data you read.  
+      Helix Compute Systems reduces how much work you do.
+    </p>
+
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="proof-section">
+  <div class="section-inner narrow">
+
+    <!-- Core difference -->
+    <div class="card">
+      <h2>The core difference</h2>
+
+      <p class="section-copy">
+        Parquet is a columnar storage format designed to improve read efficiency, compression, and query performance.
+      </p>
+
+      <p class="section-copy" style="margin-top: 1rem;">
+        Helix Compute Systems is a compute layer that eliminates unnecessary execution entirely.
+      </p>
+    </div>
+
+    <!-- Key difference -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>The key difference</h3>
+
+      <p class="section-copy">
+        Parquet reduces data access cost.  
+        Helix reduces compute itself.
+      </p>
+    </div>
+
+    <!-- What Parquet does well -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>What Parquet does well</h3>
+
+      <ul style="
+        margin-top: 1rem;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      ">
+        <li>Columnar data storage</li>
+        <li>Efficient compression</li>
+        <li>Faster query scans</li>
+        <li>Reduced I/O cost</li>
+      </ul>
+    </div>
+
+    <!-- Where Parquet stops -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>Where Parquet stops</h3>
+
+      <p class="section-copy">
+        Parquet improves how data is accessed—but pipelines still execute across entire datasets.
+      </p>
+
+      <p class="section-copy" style="margin-top: 1rem;">
+        Even when only a small fraction of data changes, compute workloads often remain unchanged.
+      </p>
+    </div>
+
+    <!-- Where Helix fits -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>Where Helix fits</h3>
+
+      <p class="section-copy">
+        Helix moves optimization beyond storage into execution—running compute only where change occurs.
+      </p>
+
+      <p class="section-copy" style="margin-top: 1rem;">
+        It eliminates redundant work instead of just reducing how much data is read.
+      </p>
+    </div>
+
+    <!-- Result -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>The result</h3>
+
+      <ul style="
+        margin-top: 1rem;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      ">
+        <li>Reduced compute cycles</li>
+        <li>Lower infrastructure cost</li>
+        <li>Faster pipeline execution</li>
+        <li>More efficient scaling</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>
+    © Helix Compute Systems — A product of Evo Engineering<br>
+    Structure-aware systems for computation, infrastructure, and control.
+  </p>
+</footer>
+
+</body>
+</html>

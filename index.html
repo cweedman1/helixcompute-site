@@ -4,166 +4,191 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Helix Compute Systems — Selective Compute Engine for Delta Processing</title>
-  <meta name="description" content="Helix Compute Systems reduces compute cost by processing only what changed. Selective compute for data pipelines, telemetry, time-series systems, and large-scale JSON or log processing.">
-  <meta name="keywords" content="selective compute, compute optimization, delta processing, data pipelines, telemetry systems, parquet alternative, delta lake alternative, infrastructure efficiency">
+  <title>Helix Compute Systems — Selective Execution Engine for Data Pipelines</title>
+
+  <meta name="description" content="Helix Compute Systems eliminates redundant compute in data pipelines by executing only on change. Achieve ~95% compute reduction across streaming, CDC, and time-series systems.">
+
+  <meta name="keywords" content="selective compute, incremental processing, change data capture, streaming pipelines, Kafka, Delta Lake, ETL optimization, compute reduction, data engineering">
+
   <meta name="author" content="Helix Compute Systems">
 
-  <meta property="og:title" content="Helix Compute Systems — Selective Compute Engine">
+  <meta property="og:title" content="Helix Compute Systems — Selective Execution Engine">
   <meta property="og:description" content="Stop recomputing everything. Process only what changed.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://helixcompute.io">
   <meta property="og:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Helix Compute Systems — Selective Compute Engine">
-  <meta name="twitter:description" content="Reduce compute cost by processing only what changed.">
+  <meta name="twitter:title" content="Helix Compute Systems — Selective Execution Engine">
+  <meta name="twitter:description" content="Reduce compute cost by executing only on change.">
   <meta name="twitter:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
 
   <link rel="canonical" href="https://helixcompute.io">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-  <header class="site-header">
-    <nav class="nav">
-      <a href="/" class="brand" aria-label="Helix Compute Systems home">
-        <picture>
-          <source srcset="assets/logo/helix_logo_icon.webp" type="image/webp">
-          <img src="assets/logo/helix_logo_icon.png" alt="Helix Compute Systems logo" class="brand-logo">
-        </picture>
-        <span class="brand-text">Helix Compute Systems</span>
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="brand">
+      <img src="assets/logo/helix_logo_icon.webp" class="brand-logo" alt="Helix logo">
+      <span class="brand-text">Helix Compute Systems</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#use-cases">Use Cases</a>
+      <a href="#compare">Compare</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank">Demo</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">Selective Execution Engine</p>
+
+    <h1>Stop recomputing everything.</h1>
+
+    <p class="hero-subtitle">
+      Process only what changed.
+    </p>
+
+    <p class="hero-description">
+      Helix Compute Systems is a deterministic execution layer that eliminates redundant computation in modern data pipelines, streaming systems (Kafka, Flink), and incremental workflows.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://github.com/cweedman1/helixcompute-demo" class="btn btn-primary" target="_blank">
+        Run the Demo
       </a>
 
-      <div class="nav-links">
-        <a href="#how">How It Works</a>
-        <a href="#use-cases">Use Cases</a>
-        <a href="#compare">Compare</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank" rel="noopener noreferrer">Demo Repo</a>
+      <a href="#compare" class="btn btn-secondary">
+        See Comparisons
+      </a>
+    </div>
+
+    <p class="hero-trust">
+      Runs locally. No black box. Reproducible results.
+    </p>
+
+    <p class="hero-trust">
+      Compatible with Delta Lake, CDC pipelines, and streaming systems.
+    </p>
+
+  </div>
+</section>
+
+<section class="proof-section">
+  <div class="section-inner">
+    <div class="proof-box">
+      <h2>Measured Results</h2>
+      <pre>
+Compute Reduction: ~95%
+Data Reduction: ~98%
+Observed Speedup: 5x–15x
+
+Validation: SHA-256 (bitwise exact)
+      </pre>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <div class="section-inner">
+    <h2>How It Works</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Detect Change</h3>
+        <p>Identify only the records that changed between states.</p>
       </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-overlay"></div>
+      <div class="card">
+        <h3>Execute Selectively</h3>
+        <p>Run compute only on changed data and its dependencies.</p>
+      </div>
 
-      <div class="hero-content">
-        <p class="eyebrow">Selective Compute Engine</p>
-        <h1>Stop recomputing everything.</h1>
-        <p class="hero-subtitle">
-          Process only what changed.
+      <div class="card">
+        <h3>Reconstruct State</h3>
+        <p>Rebuild full output deterministically with zero approximation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="use-cases" class="use">
+  <div class="section-inner narrow">
+    <h2>Where It Applies</h2>
+
+    <p class="section-copy">
+      Helix is designed for systems where data is large and change is sparse.
+    </p>
+
+    <ul class="use-list">
+      <li>Streaming data pipelines (Kafka, Flink)</li>
+      <li>Change Data Capture (CDC) systems</li>
+      <li>Telemetry and monitoring systems</li>
+      <li>Time-series and financial workloads</li>
+      <li>Large-scale JSON and log processing</li>
+    </ul>
+  </div>
+</section>
+
+<section id="compare" class="compare">
+  <div class="section-inner">
+    <h2>Compared to Existing Systems</h2>
+
+    <p class="section-copy">
+      Most systems optimize storage or data access. Helix optimizes whether computation happens at all.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Delta Lake</h3>
+        <p>
+          Optimizes storage and incremental reads, but still recomputes large portions of pipelines.
         </p>
+        <p><a href="delta-vs-helix.html">View comparison →</a></p>
+      </div>
 
-        <p class="hero-description">
-          Helix Compute Systems is a compute optimization layer that reduces redundant processing by operating only on data deltas — lowering compute cost, increasing throughput, and extracting more capacity from existing infrastructure.
+      <div class="card">
+        <h3>Parquet</h3>
+        <p>
+          Improves storage efficiency but does not reduce compute execution.
         </p>
+        <p><a href="parquet-vs-helix.html">View comparison →</a></p>
+      </div>
 
-        <div class="hero-actions">
-          <a href="https://github.com/cweedman1/helixcompute-demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            Run the Demo
-          </a>
-          <a href="#compare" class="btn btn-secondary">
-            See Comparisons
-          </a>
-        </div>
-
-        <p class="hero-trust">
-          Runs locally. No black box. Reproducible results.
+      <div class="card">
+        <h3>Streaming Systems</h3>
+        <p>
+          Kafka and streaming systems move events efficiently, but still execute compute on large portions of data.
         </p>
+        <p><a href="what-is-selective-compute.html">Learn more →</a></p>
       </div>
-    </section>
 
-    <section class="proof-section">
-      <div class="section-inner">
-        <div class="proof-box">
-          <h2>Example Output</h2>
-          <pre>Dataset: AEP_hourly.json
+    </div>
+  </div>
+</section>
 
-Data Reduction: 98%
-Compute Reduction: 95%
 
-Validation: SHA-256 match
-Execution Time: ~1.2s</pre>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <section class="how" id="how">
-      <div class="section-inner">
-        <h2>How It Works</h2>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Detect Changes</h3>
-            <p>Identify only the modified portions of a dataset or state stream.</p>
-          </article>
-
-          <article class="card">
-            <h3>Process Delta</h3>
-            <p>Run compute only on changed data instead of reprocessing full pipelines.</p>
-          </article>
-
-          <article class="card">
-            <h3>Reconstruct State</h3>
-            <p>Rebuild exact output deterministically with no approximation layer.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="use" id="use-cases">
-      <div class="section-inner narrow">
-        <h2>Where It Applies</h2>
-
-        <p class="section-copy">
-          Helix Compute Systems is designed for systems where data volume is large and incremental change is relatively small.
-        </p>
-
-        <ul class="use-list">
-          <li>Streaming data pipelines</li>
-          <li>Telemetry and monitoring systems</li>
-          <li>Time-series and financial workloads</li>
-          <li>Large-scale JSON and log processing</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="compare" id="compare">
-      <div class="section-inner">
-        <h2>Compared to Existing Systems</h2>
-
-        <div class="grid compare-grid">
-          <article class="card">
-            <h3>Delta Lake</h3>
-            <p>
-              Delta Lake tracks changes in datasets, but compute workflows still often reprocess substantial portions of data. Helix Compute Systems is focused on reducing the actual amount of work executed.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Parquet</h3>
-            <p>
-              Parquet improves storage efficiency and retrieval patterns, but it is not a compute reduction layer. Helix Compute Systems targets the workload itself, not just the file format.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Traditional Pipelines</h3>
-            <p>
-              Most pipelines rerun full datasets on every cycle. Helix Compute Systems eliminates redundant processing by executing only against the delta.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© Helix Compute Systems — A product of Evo Engineering</p>
-  </footer>
+<footer class="site-footer">
+  <p>
+    © Helix Compute Systems — A product of Evo Engineering<br>
+    Structure-aware systems for computation, infrastructure, and control.
+  </p>
+</footer>
 
 </body>
 </html>
-

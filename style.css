@@ -368,3 +368,19 @@ pre {
     width: 100%;
   }
 }
+.hero-contact {
+  background:
+    url("assets/images/hero-contact.webp") right center / cover no-repeat;
+}
+.hero-kafka {
+  background:
+    url("assets/images/hero-kafka.webp") right center / cover no-repeat;
+}
+.hero-parquet {
+  background:
+    url("assets/images/hero-parquet-vs-helix.webp") right center / cover no-repeat;
+}
+.hero-delta {
+  background:
+    url("assets/images/hero-delta-vs-helix.webp") right center / cover no-repeat;
+}
