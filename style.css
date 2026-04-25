@@ -384,3 +384,42 @@ pre {
   background:
     url("assets/images/hero-delta-vs-helix.webp") right center / cover no-repeat;
 }
+/* ===== HERO FIX (DROP-IN PATCH) ===== */
+
+.hero {
+  min-height: 78vh;
+  min-height: 78svh; /* mobile fix */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/* Ensure all hero variants behave consistently */
+.hero-contact,
+.hero-kafka,
+.hero-parquet,
+.hero-delta {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/* ===== MOBILE FIX (KEY CHANGE) ===== */
+
+@media (max-width: 640px) {
+
+  /* Fix image not visible on mobile */
+  .hero,
+  .hero-contact,
+  .hero-kafka,
+  .hero-parquet,
+  .hero-delta {
+    background-position: center center !important;
+  }
+
+  /* Fix mobile viewport height issues */
+  .hero {
+    min-height: 70vh;
+    min-height: 70svh;
+  }
+}
