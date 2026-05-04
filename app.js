@@ -64,3 +64,17 @@ async function runHelixDemo() {
     output.innerText = "Server waking up. Try again in a moment.";
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const runBtn = document.getElementById("run-demo-btn");
+  const slider = document.getElementById("data-scale");
+
+  if (runBtn) {
+    runBtn.addEventListener("click", runHelixDemo);
+  }
+
+  if (slider) {
+    slider.addEventListener("input", (e) => {
+      updateScale(e.target.value);
+    });
+  }
+});
