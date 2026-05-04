@@ -66,9 +66,9 @@
     </p>
 
     <div class="hero-actions">
-      <a href="https://github.com/cweedman1/helixcompute-demo" class="btn btn-primary" target="_blank">
+      <button class="btn btn-primary" onclick="runHelixDemo()">
         Run the Demo
-      </a>
+      </button>
 
       <a href="#compare" class="btn btn-secondary">
         See Comparisons
@@ -89,16 +89,48 @@
 <section class="proof-section">
   <div class="section-inner">
     <div class="proof-box">
-      <h2>Measured Results</h2>
-      <pre>
-Compute Reduction: ~95%
-Data Reduction: ~98%
-Observed Speedup: 5x–15x
 
-Validation: SHA-256 (bitwise exact)
-      </pre>
-    </div>
-  </div>
+      <h2>Live Results</h2>
+
+      <div id="demo-explainer" style="margin-bottom:16px; color:var(--muted);">
+        This demo runs Helix on a real time-series dataset where new data is appended,
+        but most records remain unchanged between runs.
+      </div>
+
+      <pre id="demo-output"></pre>
+
+<div id="meaning-block" style="display:none; margin-top: 24px; font-size: 0.95rem; color: var(--muted); line-height: 1.6;">
+  <strong>What this means:</strong><br><br>
+
+  Most data pipelines recompute entire datasets on every run,
+  even when only a small portion has changed.<br><br>
+
+  In this example, over <strong>115,000 operations were unnecessary</strong>.<br><br>
+
+  At scale, this translates directly into compute cost.
+</div>
+
+<!-- 🔥 ADD SLIDER RIGHT HERE -->
+<div id="slider-block" style="display:none; margin-top: 20px;">
+  <label for="data-scale" style="font-size: 0.9rem; color: var(--muted);">
+    Pipeline Size: <span id="scale-label">1 TB/day</span>
+  </label>
+  <input 
+    type="range" 
+    id="data-scale" 
+    min="1" 
+    max="10" 
+    value="1" 
+    step="1"
+    style="width:100%; margin-top:6px;"
+    oninput="updateScale(this.value)"
+  >
+</div>
+
+<div id="cost-output" style="margin-top:20px; font-family:monospace;"></div>
+
+    </div> <!-- proof-box -->
+  </div> <!-- section-inner -->
 </section>
 
 <section id="how" class="how">
@@ -180,15 +212,19 @@ Validation: SHA-256 (bitwise exact)
   </div>
 </section>
 
-
 </main>
 
 <footer class="site-footer">
   <p>
-    © Helix Compute Systems — A product of Evo Engineering<br>
-    Structure-aware systems for computation, infrastructure, and control.
-  </p>
+  © Helix Compute Systems — A product of 
+  <a href="https://evo.engineering" target="_blank" style="color:inherit; text-decoration:underline;">
+    Evo Engineering
+  </a><br>
+  Structure-aware systems for computation, infrastructure, and control.
+</p>
 </footer>
+
+<script src="./app.js"></script>
 
 </body>
 </html>
