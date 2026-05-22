@@ -15,16 +15,46 @@
   <meta property="og:title" content="Helix Compute Systems — Selective Execution Engine">
   <meta property="og:description" content="Stop recomputing everything. Process only what changed.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://helixcompute.io">
-  <meta property="og:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
+  <meta property="og:url" content="https://www.helixcompute.io/">
+  <meta property="og:image" content="https://www.helixcompute.io/assets/logo/helix_compute_logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Helix Compute Systems — Selective Execution Engine">
   <meta name="twitter:description" content="Reduce compute cost by executing only on change.">
-  <meta name="twitter:image" content="https://helixcompute.io/assets/logo/helix_compute_logo.png">
+  <meta name="twitter:image" content="https://www.helixcompute.io/assets/logo/helix_compute_logo.png">
 
-  <link rel="canonical" href="https://helixcompute.io">
+  <link rel="canonical" href="https://www.helixcompute.io/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link
+    rel="preload"
+    as="image"
+    href="assets/images/hero.webp"
+    fetchpriority="high">
   <link rel="stylesheet" href="./style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.helixcompute.io/#organization",
+        "name": "Helix Compute Systems",
+        "url": "https://www.helixcompute.io/",
+        "logo": "https://www.helixcompute.io/assets/logo/helix_compute_logo.png",
+        "email": "contact@helixcompute.io"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.helixcompute.io/#website",
+        "url": "https://www.helixcompute.io/",
+        "name": "Helix Compute Systems",
+        "publisher": {
+          "@id": "https://www.helixcompute.io/#organization"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -32,7 +62,14 @@
 <header class="site-header">
   <nav class="nav">
     <a href="/" class="brand">
-      <img src="assets/logo/helix_logo_icon.webp" class="brand-logo" alt="Helix logo">
+      <img
+        src="assets/logo/helix_logo_icon-42.webp"
+        srcset="assets/logo/helix_logo_icon-42.webp 42w, assets/logo/helix_logo_icon-84.webp 84w, assets/logo/helix_logo_icon-126.webp 126w"
+        sizes="42px"
+        width="42"
+        height="58"
+        class="brand-logo"
+        alt="Helix logo">
       <span class="brand-text">Helix Compute Systems</span>
     </a>
 
@@ -189,7 +226,7 @@
         <p>
           Optimizes storage and incremental reads, but still recomputes large portions of pipelines.
         </p>
-        <p><a href="delta-vs-helix.html">View comparison →</a></p>
+        <p><a href="delta-vs-helix.html">Compare Delta vs Helix →</a></p>
       </div>
 
       <div class="card">
@@ -197,7 +234,7 @@
         <p>
           Improves storage efficiency but does not reduce compute execution.
         </p>
-        <p><a href="parquet-vs-helix.html">View comparison →</a></p>
+        <p><a href="parquet-vs-helix.html">Compare Parquet vs Helix →</a></p>
       </div>
 
       <div class="card">
@@ -224,7 +261,7 @@
 </p>
 </footer>
 
-<script src="app.js"></script>
+<script src="/app.js"></script>
 
 </body>
 </html>
