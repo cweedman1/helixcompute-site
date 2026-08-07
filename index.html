@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Helix Compute Systems — Selective Execution Engine for Data Pipelines</title>
+  <title>Helix Compute | Selective Execution for Data Pipelines</title>
 
-  <meta name="description" content="Helix Compute Systems eliminates redundant compute in data pipelines by executing only on change. Achieve ~95% compute reduction across streaming, CDC, and time-series systems.">
+  <meta name="description" content="Helix Compute is a deterministic selective execution layer that reduces redundant computation across data pipelines and incremental workflows.">
 
   <meta name="keywords" content="selective compute, incremental processing, change data capture, streaming pipelines, Kafka, Delta Lake, ETL optimization, compute reduction, data engineering">
 
   <meta name="author" content="Helix Compute Systems">
 
-  <meta property="og:title" content="Helix Compute Systems — Selective Execution Engine">
-  <meta property="og:description" content="Stop recomputing everything. Process only what changed.">
+  <meta property="og:title" content="Helix Compute | Selective Execution for Data Pipelines">
+  <meta property="og:description" content="Deterministic selective execution that reduces redundant computation across data pipelines and incremental workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.helixcompute.io/">
   <meta property="og:image" content="https://www.helixcompute.io/assets/logo/helix_compute_logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Helix Compute Systems — Selective Execution Engine">
-  <meta name="twitter:description" content="Reduce compute cost by executing only on change.">
+  <meta name="twitter:title" content="Helix Compute | Selective Execution for Data Pipelines">
+  <meta name="twitter:description" content="Deterministic selective execution that reduces redundant computation across data pipelines and incremental workflows.">
   <meta name="twitter:image" content="https://www.helixcompute.io/assets/logo/helix_compute_logo.png">
 
   <link rel="canonical" href="https://www.helixcompute.io/">
@@ -69,13 +69,14 @@
         width="42"
         height="58"
         class="brand-logo"
-        alt="Helix logo">
+        alt="Helix Compute Systems logo">
       <span class="brand-text">Helix Compute Systems</span>
     </a>
 
     <div class="nav-links">
       <a href="#how">How It Works</a>
       <a href="#use-cases">Use Cases</a>
+      <a href="#validation">Validation</a>
       <a href="#compare">Compare</a>
       <a href="contact.html">Contact</a>
       <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank">Demo</a>
@@ -99,7 +100,7 @@
     </p>
 
     <p class="hero-description">
-      Helix Compute Systems is a deterministic execution layer that eliminates redundant computation in modern data pipelines, streaming systems (Kafka, Flink), and incremental workflows.
+      Helix Compute Systems is a deterministic execution layer that reduces redundant computation in data pipelines, streaming systems, and incremental workflows while preserving exact reconstructed results.
     </p>
 
     <div class="hero-actions">
@@ -117,7 +118,7 @@
     </p>
 
     <p class="hero-trust">
-      Compatible with Delta Lake, CDC pipelines, and streaming systems.
+      Validated across JSON, CDC, partitioned Parquet analytics, and stateful historian workloads.
     </p>
 
   </div>
@@ -170,6 +171,38 @@
   </div> <!-- section-inner -->
 </section>
 
+<section id="validation" class="how">
+  <div class="section-inner">
+    <p class="eyebrow" style="text-align:center;">Engineering Validation</p>
+    <h2>Same result. Less computation.</h2>
+
+    <p class="section-copy">
+      Helix Compute has been validated against full recomputation across multiple workload classes. Validated runs produced deterministic equivalence and matching canonical SHA-256 hashes.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Deterministic Correctness</h3>
+        <p>Selective execution is checked against full recomputation. Validated runs produced matching reconstructed state, materialized outputs, and canonical hashes.</p>
+      </div>
+
+      <div class="card">
+        <h3>95&ndash;99% Compute Reduction</h3>
+        <p>Representative operational workloads reduced admitted computation by approximately 95&ndash;99%, depending on workload topology and change characteristics.</p>
+      </div>
+
+      <div class="card">
+        <h3>1,027,744-Row Historian</h3>
+        <p>On a retained stateful historian workload, 10 appended rows required 173 rows of recomputation while preserving deterministic equivalence.</p>
+      </div>
+    </div>
+
+    <p class="section-copy" style="margin-top:20px; margin-bottom:0;">
+      Historian reference run: baseline &asymp;18.73 s &middot; Helix &asymp;0.00395 s &middot; Equivalence Gate: PASS
+    </p>
+  </div>
+</section>
+
 <section id="how" class="how">
   <div class="section-inner">
     <h2>How It Works</h2>
@@ -177,17 +210,17 @@
     <div class="grid">
       <div class="card">
         <h3>Detect Change</h3>
-        <p>Identify only the records that changed between states.</p>
+        <p>Identify records whose state changed between executions.</p>
       </div>
 
       <div class="card">
         <h3>Execute Selectively</h3>
-        <p>Run compute only on changed data and its dependencies.</p>
+        <p>Execute affected computation across changed data and its dependencies.</p>
       </div>
 
       <div class="card">
         <h3>Reconstruct State</h3>
-        <p>Rebuild full output deterministically with zero approximation.</p>
+        <p>Rebuild the complete output deterministically with zero approximation.</p>
       </div>
     </div>
   </div>
@@ -207,6 +240,7 @@
       <li>Telemetry and monitoring systems</li>
       <li>Time-series and financial workloads</li>
       <li>Large-scale JSON and log processing</li>
+      <li>Partitioned Parquet analytics</li>
     </ul>
   </div>
 </section>
@@ -224,7 +258,7 @@
       <div class="card">
         <h3>Delta Lake</h3>
         <p>
-          Optimizes storage and incremental reads, but still recomputes large portions of pipelines.
+          Provides transactional storage, versioning, and efficient incremental data access. Helix operates at the execution layer, reducing computation to affected work.
         </p>
         <p><a href="delta-vs-helix.html">Compare Delta vs Helix →</a></p>
       </div>
@@ -232,7 +266,7 @@
       <div class="card">
         <h3>Parquet</h3>
         <p>
-          Improves storage efficiency but does not reduce compute execution.
+          Provides efficient columnar storage and selective data access. Helix complements that efficiency by reducing the scope of computation itself.
         </p>
         <p><a href="parquet-vs-helix.html">Compare Parquet vs Helix →</a></p>
       </div>
@@ -240,7 +274,7 @@
       <div class="card">
         <h3>Streaming Systems</h3>
         <p>
-          Kafka and streaming systems move events efficiently, but still execute compute on large portions of data.
+          Kafka and streaming systems move and process changing data efficiently. Helix operates alongside these systems to constrain downstream computation to affected work.
         </p>
         <p><a href="helix-vs-kafka.html">Learn more →</a></p>
       </div>
