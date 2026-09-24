@@ -1,0 +1,106 @@
+{
+  "schema_version": "helix.website.cloud_pricing.v1",
+  "as_of": "2026-09-23",
+  "currency": "USD",
+  "method": "Frozen public list-price profiles. Free allowances are subtracted from total account usage before paid tiers are applied. Projected workload cost is the marginal account cost: cost(other plus workload) minus cost(other). Taxes, commitments, negotiated discounts, operations, retrieval, replication, acceleration, and provider-specific exceptions are excluded.",
+  "profiles": [
+    {
+      "id": "aws_us_east_1",
+      "label": "AWS — S3 Standard / internet egress, us-east-1",
+      "provider": "AWS",
+      "region_destination": "S3 Standard in us-east-1; internet destination under the listed general transfer-out schedule",
+      "transport": {
+        "display_unit": "GB",
+        "bytes_per_unit": 1000000000,
+        "free_allowance_units": 100,
+        "paid_tiers": [
+          {"width_units": 9999, "rate": 0.09},
+          {"width_units": 40000, "rate": 0.085},
+          {"width_units": 100000, "rate": 0.07},
+          {"width_units": 350000, "rate": 0.05},
+          {"width_units": null, "rate": 0.05}
+        ],
+        "free_allowance_note": "100 GB/month aggregate data transfer out to the internet across eligible AWS services and regions; other account usage may consume it first."
+      },
+      "storage": {
+        "display_unit": "GB-month",
+        "bytes_per_unit": 1000000000,
+        "free_allowance_units": 0,
+        "paid_tiers": [
+          {"width_units": 50000, "rate": 0.023},
+          {"width_units": 450000, "rate": 0.022},
+          {"width_units": null, "rate": 0.021}
+        ],
+        "free_allowance_note": "No free allowance modeled in this frozen S3 Standard profile."
+      },
+      "sources": [
+        "https://aws.amazon.com/s3/pricing/",
+        "https://aws.amazon.com/ec2/pricing/on-demand/"
+      ]
+    },
+    {
+      "id": "azure_east_us",
+      "label": "Azure — Blob Hot LRS / NA-Europe egress, East US",
+      "provider": "Azure",
+      "region_destination": "Blob Storage Hot LRS in East US; premium global network transfer from North America or Europe",
+      "transport": {
+        "display_unit": "GB",
+        "bytes_per_unit": 1000000000,
+        "free_allowance_units": 100,
+        "paid_tiers": [
+          {"width_units": 10000, "rate": 0.087},
+          {"width_units": 40000, "rate": 0.083},
+          {"width_units": 100000, "rate": 0.07},
+          {"width_units": 350000, "rate": 0.05},
+          {"width_units": null, "rate": 0.05}
+        ],
+        "free_allowance_note": "First 100 GB/month free under the cited public bandwidth schedule; other account usage may consume it first."
+      },
+      "storage": {
+        "display_unit": "GB-month",
+        "bytes_per_unit": 1000000000,
+        "free_allowance_units": 0,
+        "paid_tiers": [
+          {"width_units": 51200, "rate": 0.0208},
+          {"width_units": 460800, "rate": 0.019968},
+          {"width_units": null, "rate": 0.019136}
+        ],
+        "free_allowance_note": "No free allowance modeled in this frozen Blob Hot LRS profile."
+      },
+      "sources": [
+        "https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
+        "https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices"
+      ]
+    },
+    {
+      "id": "gcp_us_central1",
+      "label": "Google Cloud — Standard Storage / worldwide egress, us-central1",
+      "provider": "Google Cloud",
+      "region_destination": "Standard Storage in us-central1; general data transfer to worldwide destinations excluding Asia and Australia",
+      "transport": {
+        "display_unit": "GiB",
+        "bytes_per_unit": 1073741824,
+        "free_allowance_units": 93.13225746154785,
+        "paid_tiers": [
+          {"width_units": 10240, "rate": 0.12},
+          {"width_units": 143360, "rate": 0.11},
+          {"width_units": null, "rate": 0.08}
+        ],
+        "free_allowance_note": "100 GB/month free eligible transfer from North America, converted to 93.132257 GiB for this GiB-priced profile; other account usage may consume it first."
+      },
+      "storage": {
+        "display_unit": "GiB-month",
+        "bytes_per_unit": 1073741824,
+        "free_allowance_units": 4.656612873077393,
+        "paid_tiers": [
+          {"width_units": null, "rate": 0.02}
+        ],
+        "free_allowance_note": "5 GB-month free eligible Standard Storage in listed US regions, converted to 4.656613 GiB-month for this GiB-priced profile; other account usage may consume it first."
+      },
+      "sources": [
+        "https://cloud.google.com/storage/pricing",
+        "https://docs.cloud.google.com/free/docs/free-cloud-features"
+      ]
+    }
+  ]
+}

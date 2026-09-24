@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Parquet vs Helix Compute | Storage and Selective Execution</title>
+  <title>Parquet vs Helix Compute | Storage and Change</title>
 
-  <meta name="description" content="Compare Parquet columnar storage and selective data access with Helix Compute selective execution for reducing computation scope in data pipelines." />
+  <meta name="description" content="Parquet stores analytical data efficiently. Helix reduces repeated work and data between versions." />
 
-  <meta name="keywords" content="Parquet vs Helix, columnar storage, compute optimization, data pipelines, ETL efficiency, data engineering" />
+  <meta name="keywords" content="Parquet vs Helix, columnar storage, data movement, historical storage, working from change" />
 
   <meta name="author" content="Helix Compute Systems" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="Parquet vs Helix Compute | Storage and Selective Execution" />
-  <meta property="og:description" content="Parquet enables efficient columnar access. Helix complements it by constraining computation to affected work." />
+  <meta property="og:title" content="Parquet vs Helix Compute | Storage and Change" />
+  <meta property="og:description" content="See how efficient columnar storage and change-based reconstruction can work together." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.helixcompute.io/parquet-vs-helix.html" />
   <meta property="og:image" content="https://www.helixcompute.io/assets/logo/helix_compute_social_card.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Parquet vs Helix Compute | Storage and Selective Execution" />
-  <meta name="twitter:description" content="Compare efficient columnar access with selective execution of affected work." />
+  <meta name="twitter:title" content="Parquet vs Helix Compute | Storage and Change" />
+  <meta name="twitter:description" content="See how efficient columnar storage and change-based reconstruction can work together." />
   <meta name="twitter:image" content="https://www.helixcompute.io/assets/logo/helix_compute_social_card.png" />
 
   <link rel="canonical" href="https://www.helixcompute.io/parquet-vs-helix.html" />
@@ -54,10 +54,10 @@
     <div class="nav-links">
       <a href="./#how">How It Works</a>
       <a href="./#use-cases">Use Cases</a>
-      <a href="./#validation">Validation</a>
+      <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">Validation</a>
       <a href="./#compare">Compare</a>
       <a href="contact.html">Contact</a>
-      <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank">Demo Repo</a>
+      <a href="/#live-proof">Demo</a>
     </div>
   </nav>
 </header>
@@ -75,12 +75,11 @@
     <h1>Parquet vs Helix Compute</h1>
 
     <p class="hero-subtitle">
-      Efficient storage doesn’t mean efficient computation.
+      Efficient storage and reducing repeated state solve different problems.
     </p>
 
     <p class="hero-description">
-      Parquet reduces how much data you read.  
-      Helix Compute Systems reduces how much work you do.
+      Parquet stores analytical data efficiently. Helix reduces how much unchanged state must be processed, moved, or represented between versions.
     </p>
 
   </div>
@@ -90,93 +89,25 @@
 <section class="proof-section">
   <div class="section-inner narrow">
 
-    <!-- Core difference -->
     <div class="card">
-      <h2>The core difference</h2>
-
-      <p class="section-copy">
-        Parquet is a columnar storage format designed to improve read efficiency, compression, and query performance.
-      </p>
-
-      <p class="section-copy" style="margin-top: 1rem;">
-        Helix Compute Systems is a compute layer that eliminates unnecessary execution entirely.
-      </p>
+      <h2>What does Parquet do?</h2>
+      <p class="section-copy">Parquet stores analytical data efficiently in a compressed columnar format.</p>
     </div>
 
-    <!-- Key difference -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>The key difference</h3>
-
-      <p class="section-copy">
-        Parquet reduces data access cost.  
-        Helix reduces compute itself.
-      </p>
+      <h3>What does Helix do?</h3>
+      <p class="section-copy">Helix reduces how much unchanged state must be processed, moved, or represented between versions.</p>
     </div>
 
-    <!-- What Parquet does well -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>What Parquet does well</h3>
-
-      <ul style="
-        margin-top: 1rem;
-        line-height: 1.8;
-        color: var(--muted);
-        max-width: 360px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-      ">
-        <li>Columnar data storage</li>
-        <li>Efficient compression</li>
-        <li>Faster query scans</li>
-        <li>Reduced I/O cost</li>
-      </ul>
+      <h3>How can they work together?</h3>
+      <p class="section-copy">Parquet can encode snapshots and materialized results. Helix can govern and reconstruct the changes between them.</p>
     </div>
 
-    <!-- Where Parquet stops -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>Where Parquet stops</h3>
-
-      <p class="section-copy">
-        Parquet improves how data is accessed—but pipelines still execute across entire datasets.
-      </p>
-
-      <p class="section-copy" style="margin-top: 1rem;">
-        Even when only a small fraction of data changes, compute workloads often remain unchanged.
-      </p>
-    </div>
-
-    <!-- Where Helix fits -->
-    <div class="card" style="margin-top: 1.5rem;">
-      <h3>Where Helix fits</h3>
-
-      <p class="section-copy">
-        Helix moves optimization beyond storage into execution—running compute only where change occurs.
-      </p>
-
-      <p class="section-copy" style="margin-top: 1rem;">
-        It eliminates redundant work instead of just reducing how much data is read.
-      </p>
-    </div>
-
-    <!-- Result -->
-    <div class="card" style="margin-top: 1.5rem;">
-      <h3>The result</h3>
-
-      <ul style="
-        margin-top: 1rem;
-        line-height: 1.8;
-        color: var(--muted);
-        max-width: 360px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-      ">
-        <li>Reduced compute cycles</li>
-        <li>Lower infrastructure cost</li>
-        <li>Faster pipeline execution</li>
-        <li>More efficient scaling</li>
-      </ul>
+      <h3>Where can Helix reduce redundant work or data?</h3>
+      <p class="section-copy">For supported sparse changes, Helix can avoid repeatedly representing unchanged state before lower-level encoding and compression begin.</p>
+      <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">See the evidence &rarr;</a></p>
     </div>
 
   </div>

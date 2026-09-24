@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Helix Compute | Selective Execution for Data Pipelines</title>
+  <title>Helix Compute | Do More With Less Data</title>
 
-  <meta name="description" content="Helix Compute is a deterministic selective execution layer that reduces redundant computation across data pipelines and incremental workflows.">
+  <meta name="description" content="Helix helps systems compute less, move less, and store less by working from change instead of repeatedly processing complete state.">
 
-  <meta name="keywords" content="selective compute, incremental processing, change data capture, streaming pipelines, Kafka, Delta Lake, ETL optimization, compute reduction, data engineering">
+  <meta name="keywords" content="Helix Compute, incremental computation, data movement, historical storage, governed reconstruction, exact state reconstruction">
 
   <meta name="author" content="Helix Compute Systems">
 
-  <meta property="og:title" content="Helix Compute | Selective Execution for Data Pipelines">
-  <meta property="og:description" content="Deterministic selective execution that reduces redundant computation across data pipelines and incremental workflows.">
+  <meta property="og:title" content="Do More With Less Data | Helix Compute">
+  <meta property="og:description" content="When only part of the data changes, Helix helps avoid treating all of the data as new.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.helixcompute.io/">
   <meta property="og:image" content="https://www.helixcompute.io/assets/logo/helix_compute_social_card.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Helix Compute | Selective Execution for Data Pipelines">
-  <meta name="twitter:description" content="Deterministic selective execution that reduces redundant computation across data pipelines and incremental workflows.">
+  <meta name="twitter:title" content="Do More With Less Data | Helix Compute">
+  <meta name="twitter:description" content="When only part of the data changes, Helix helps avoid treating all of the data as new.">
   <meta name="twitter:image" content="https://www.helixcompute.io/assets/logo/helix_compute_social_card.png">
 
   <link rel="canonical" href="https://www.helixcompute.io/">
@@ -76,10 +76,10 @@
     <div class="nav-links">
       <a href="#how">How It Works</a>
       <a href="#use-cases">Use Cases</a>
-      <a href="#validation">Validation</a>
+      <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">Validation</a>
       <a href="#compare">Compare</a>
       <a href="contact.html">Contact</a>
-      <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank">Demo</a>
+      <a href="#live-proof">Demo</a>
     </div>
   </nav>
 </header>
@@ -91,16 +91,16 @@
 
   <div class="hero-content">
 
-    <p class="eyebrow">Selective Execution Engine</p>
+    <p class="eyebrow">Helix Compute</p>
 
-    <h1>Stop recomputing everything.</h1>
+    <h1>Do More With Less Data.</h1>
 
     <p class="hero-subtitle">
       Process only what changed.
     </p>
 
     <p class="hero-description">
-      Helix Compute Systems is a deterministic execution layer that reduces redundant computation in data pipelines, streaming systems, and incremental workflows while preserving exact reconstructed results.
+      Helix reduces redundant computation, data movement, and storage by working from change instead of repeatedly processing complete state.
     </p>
 
     <div class="hero-actions">
@@ -108,64 +108,57 @@
       Run the Demo
       </button>
 
-      <a href="#compare" class="btn btn-secondary">
-        See Comparisons
+      <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" class="btn btn-secondary" target="_blank" rel="noopener">
+        See the Evidence
       </a>
     </div>
 
     <p class="hero-trust">
-      Runs locally. No black box. Reproducible results.
-    </p>
-
-    <p class="hero-trust">
-      Validated across JSON, CDC, partitioned Parquet analytics, and stateful historian workloads.
+      Compute less. Move less. Store less.
     </p>
 
   </div>
 </section>
 
-<section class="proof-section">
+<section class="how">
+  <div class="section-inner">
+    <h2>Three Ways to Do More With Less</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Compute Less.</h3>
+        <p>Process the work affected by change instead of recomputing everything that remains valid.</p>
+      </div>
+
+      <div class="card">
+        <h3>Move Less.</h3>
+        <p>When the destination already has most of the state, move what changed instead of another complete copy when appropriate.</p>
+      </div>
+
+      <div class="card">
+        <h3>Store Less.</h3>
+        <p>Reconstruct historical states without storing every generation in full when appropriate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof-section" id="live-proof">
   <div class="section-inner">
     <div class="proof-box">
 
-      <h2>Live Results</h2>
+      <p class="eyebrow" style="text-align:center;">Live Proof</p>
+      <h2>Does it actually work?</h2>
 
       <div id="demo-explainer" style="margin-bottom:16px; color:var(--muted);">
-        This demo runs Helix on a real time-series dataset where new data is appended,
-        but most records remain unchanged between runs.
+        Run the public demo to watch Helix reduce the representation, verify the
+        change, and reconstruct the exact result.
       </div>
 
       <pre id="demo-output"></pre>
 
-<div id="meaning-block" style="display:none; margin-top: 24px; font-size: 0.95rem; color: var(--muted); line-height: 1.6;">
-  <strong>What this means:</strong><br><br>
-
-  Most data pipelines recompute entire datasets on every run,
-  even when only a small portion has changed.<br><br>
-
-  In this example, over <strong>115,000 operations were unnecessary</strong>.<br><br>
-
-  At scale, this translates directly into compute cost.
-</div>
-
-<!-- 🔥 ADD SLIDER RIGHT HERE -->
-<div id="slider-block" style="display:none; margin-top: 20px;">
-  <label for="data-scale" style="font-size: 0.9rem; color: var(--muted);">
-    Pipeline Size: <span id="scale-label">1 TB/day</span>
-  </label>
-  <input 
-    type="range" 
-    id="data-scale" 
-    min="1" 
-    max="10" 
-    value="1" 
-    step="1"
-    style="width:100%; margin-top:6px;"
-    
-  >
-</div>
-
-<div id="cost-output" style="margin-top:20px; font-family:monospace;"></div>
+      <div id="meaning-block" style="display:none; margin-top:24px; color:var(--muted); line-height:1.6;">
+        <strong>Helix verified the change before accepting it.</strong>
+      </div>
 
     </div> <!-- proof-box -->
   </div> <!-- section-inner -->
@@ -173,56 +166,107 @@
 
 <section id="validation" class="how">
   <div class="section-inner">
-    <p class="eyebrow" style="text-align:center;">Engineering Validation</p>
-    <h2>Same result. Less computation.</h2>
+    <p class="eyebrow" style="text-align:center;">Measured Evidence</p>
+    <h2>Measured, not theoretical.</h2>
 
     <p class="section-copy">
-      Helix Compute has been validated against full recomputation across multiple workload classes. Validated runs produced deterministic equivalence and matching canonical SHA-256 hashes.
+      The validation campaigns measured the data Helix moved and retained, and required exact reconstruction.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Deterministic Correctness</h3>
-        <p>Selective execution is checked against full recomputation. Validated runs produced matching reconstructed state, materialized outputs, and canonical hashes.</p>
+        <h3>Up to 7.9&times;</h3>
+        <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/transport.md" target="_blank" rel="noopener">Less data moved.</a></p>
       </div>
 
       <div class="card">
-        <h3>95&ndash;99% Compute Reduction</h3>
-        <p>Representative operational workloads reduced admitted computation by approximately 95&ndash;99%, depending on workload topology and change characteristics.</p>
+        <h3>Up to 6.8&times;</h3>
+        <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/historical-storage.md" target="_blank" rel="noopener">Less expanded historical data stored.</a></p>
       </div>
 
       <div class="card">
-        <h3>1,027,744-Row Historian</h3>
-        <p>On a retained stateful historian workload, 10 appended rows required 173 rows of recomputation while preserving deterministic equivalence.</p>
+        <h3>1 million rows</h3>
+        <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/scaling.md" target="_blank" rel="noopener">Largest tested sparse-change estate.</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Exact reconstruction</h3>
+        <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">Across the cited validation campaigns.</a></p>
       </div>
     </div>
 
     <p class="section-copy" style="margin-top:20px; margin-bottom:0;">
-      Historian reference run: baseline &asymp;18.73 s &middot; Helix &asymp;0.00395 s &middot; Equivalence Gate: PASS
+      Helix is designed for cases where change is smaller than state. When it is not, complete state may be the better representation.
     </p>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">See the Evidence &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<section class="proof-section">
+  <div class="section-inner">
+    <div class="proof-box" id="calculator-block">
+      <p class="eyebrow" style="text-align:center;">Projected Economics</p>
+      <h2>What could doing more with less data mean at your scale?</h2>
+      <p class="section-copy">Apply measured Helix byte reductions to your data volume and a published provider rate.</p>
+
+      <label for="expanded-usage">Your data volume</label>
+      <input id="expanded-usage" type="number" min="0" step="1" value="10000" style="width:100%; margin:6px 0 14px;">
+      <label for="calculator-kind">Data cost</label>
+      <select id="calculator-kind" style="width:100%; margin:6px 0 14px;">
+        <option value="transport">Monthly transport</option>
+        <option value="storage">Historical storage per month</option>
+      </select>
+      <label for="provider-profile">Provider</label>
+      <select id="provider-profile" style="width:100%; margin:6px 0 14px;"></select>
+      <label for="custom-rate">Optional custom rate (USD per displayed unit)</label>
+      <input id="custom-rate" type="number" min="0" step="0.000001" placeholder="Use sourced provider pricing" style="width:100%; margin:6px 0 14px;">
+
+      <div id="cost-output" aria-live="polite" style="margin-top:20px; font-family:monospace;"></div>
+
+      <details id="calculator-details" style="margin-top:18px; color:var(--muted); line-height:1.6;">
+        <summary>See calculation</summary>
+        <div style="margin-top:14px;">
+          <label for="evidence-profile">Measured evidence profile</label>
+          <select id="evidence-profile" style="width:100%; margin:6px 0 14px;"></select>
+          <label for="other-usage">Other account usage in the same billing dimension</label>
+          <input id="other-usage" type="number" min="0" step="1" value="0" style="width:100%; margin:6px 0 14px;">
+          <div id="cost-details-output" style="margin-top:12px; white-space:pre-wrap; font-family:monospace;"></div>
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 
 <section id="how" class="how">
   <div class="section-inner">
-    <h2>How It Works</h2>
+    <p class="eyebrow" style="text-align:center;">How It Works</p>
+    <h2>Governed Reconstruction</h2>
+
+    <p class="section-copy">
+      Helix keeps enough information to verify a change against known state before accepting it. When the change is sufficient, Helix reconstructs the exact next state. When it isn't, Helix can use complete state instead.
+    </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Detect Change</h3>
-        <p>Identify records whose state changed between executions.</p>
+        <h3>Keep What Is Known.</h3>
+        <p>Start from known-good state.</p>
       </div>
 
       <div class="card">
-        <h3>Execute Selectively</h3>
-        <p>Execute affected computation across changed data and its dependencies.</p>
+        <h3>Verify the Change.</h3>
+        <p>Confirm the change belongs to the state being advanced.</p>
       </div>
 
       <div class="card">
-        <h3>Reconstruct State</h3>
-        <p>Rebuild the complete output deterministically with zero approximation.</p>
+        <h3>Reconstruct or Use Complete State.</h3>
+        <p>Reconstruct when appropriate. Fall back when it is not.</p>
       </div>
     </div>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="https://github.com/HelixComputeSystems/helixcompute-public" target="_blank" rel="noopener">Explore Helix on GitHub &rarr;</a>
+    </p>
   </div>
 </section>
 
@@ -231,26 +275,23 @@
     <h2>Where It Applies</h2>
 
     <p class="section-copy">
-      Helix is designed for systems where data is large and change is sparse.
+      Helix is most useful when a relatively small change affects a much larger body of retained data.
     </p>
 
     <ul class="use-list">
-      <li>Streaming data pipelines (Kafka, Flink)</li>
-      <li>Change Data Capture (CDC) systems</li>
-      <li>Telemetry and monitoring systems</li>
-      <li>Time-series and financial workloads</li>
-      <li>Large-scale JSON and log processing</li>
-      <li>Partitioned Parquet analytics</li>
+      <li>Data pipelines where most existing results remain valid</li>
+      <li>Data delivery where the destination already has prior state</li>
+      <li>Historical systems that need exact earlier generations on demand</li>
     </ul>
   </div>
 </section>
 
 <section id="compare" class="compare">
   <div class="section-inner">
-    <h2>Compared to Existing Systems</h2>
+    <h2>Built to Work With Your Data Stack</h2>
 
     <p class="section-copy">
-      Most systems optimize storage or data access. Helix optimizes whether computation happens at all.
+      Helix works alongside storage formats, change feeds, databases, and event infrastructure. It uses the change they expose to reduce redundant work and data.
     </p>
 
     <div class="grid">
@@ -258,7 +299,7 @@
       <div class="card">
         <h3>Delta Lake</h3>
         <p>
-          Provides transactional storage, versioning, and efficient incremental data access. Helix operates at the execution layer, reducing computation to affected work.
+          Delta Lake manages transactional data and exposes change. Helix can use that change to reduce redundant downstream work and data.
         </p>
         <p><a href="delta-vs-helix.html">Compare Delta vs Helix →</a></p>
       </div>
@@ -266,7 +307,7 @@
       <div class="card">
         <h3>Parquet</h3>
         <p>
-          Provides efficient columnar storage and selective data access. Helix complements that efficiency by reducing the scope of computation itself.
+          Parquet stores analytical data efficiently. Helix can reduce how much unchanged state must be processed or represented between versions.
         </p>
         <p><a href="parquet-vs-helix.html">Compare Parquet vs Helix →</a></p>
       </div>
@@ -274,7 +315,7 @@
       <div class="card">
         <h3>Streaming Systems</h3>
         <p>
-          Kafka and streaming systems move and process changing data efficiently. Helix operates alongside these systems to constrain downstream computation to affected work.
+          Kafka and streaming systems move events. Helix can verify and use those changes to reconstruct exact receiver state.
         </p>
         <p><a href="helix-vs-kafka.html">Learn more →</a></p>
       </div>
@@ -288,14 +329,14 @@
 <footer class="site-footer">
   <p>
   © Helix Compute Systems — A product of 
-  <a href="https://evo.engineering" target="_blank" style="color:inherit; text-decoration:underline;">
+  <a href="https://evo.engineering" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">
     Evo Engineering
   </a><br>
   Structure-aware systems for computation, infrastructure, and control.
 </p>
 </footer>
 
-<script src="/app.js"></script>
+<script src="/app-2026-09-24.js"></script>
 
 </body>
 </html>

@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Helix Compute vs Kafka | Selective Execution for Streaming Pipelines</title>
+  <title>Kafka vs Helix Compute | Events and Change</title>
 
   <meta
     name="description"
-    content="Compare Kafka event streaming with Helix Compute selective execution for reducing redundant downstream computation in streaming data pipelines."
+    content="Kafka moves ordered events. Helix uses change to reduce repeated data and reconstruct exact receiver state."
   />
   <meta
     name="keywords"
-    content="Kafka vs Helix, streaming pipelines, event processing, compute optimization, incremental processing, data engineering"
+    content="Kafka vs Helix, event streaming, data movement, incremental computing, reconstructable state"
   />
 
   <meta name="author" content="Helix Compute Systems" />
@@ -27,16 +27,16 @@
     fetchpriority="high" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Helix Compute vs Kafka | Selective Execution for Streaming Pipelines" />
-  <meta property="og:description" content="Kafka moves and processes changing data. Helix operates alongside it to constrain downstream computation to affected work." />
+  <meta property="og:title" content="Kafka vs Helix Compute | Events and Change" />
+  <meta property="og:description" content="See how event transport and change-based reconstruction can work together." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.helixcompute.io/helix-vs-kafka.html" />
   <meta property="og:image" content="https://www.helixcompute.io/assets/logo/helix_compute_social_card.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Helix Compute vs Kafka | Selective Execution for Streaming Pipelines" />
-  <meta name="twitter:description" content="Compare event streaming with selective execution of affected downstream work." />
+  <meta name="twitter:title" content="Kafka vs Helix Compute | Events and Change" />
+  <meta name="twitter:description" content="See how event transport and change-based reconstruction can work together." />
   <meta name="twitter:image" content="https://www.helixcompute.io/assets/logo/helix_compute_social_card.png" />
 
   <link rel="stylesheet" href="style.css" />
@@ -61,10 +61,10 @@
     <div class="nav-links">
       <a href="./#how">How It Works</a>
       <a href="./#use-cases">Use Cases</a>
-      <a href="./#validation">Validation</a>
+      <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">Validation</a>
       <a href="./#compare">Compare</a>
       <a href="contact.html">Contact</a>
-      <a href="https://github.com/cweedman1/helixcompute-demo" target="_blank">Demo Repo</a>
+      <a href="/#live-proof">Demo</a>
     </div>
   </nav>
 </header>
@@ -82,12 +82,11 @@
     <h1>Helix vs Kafka</h1>
 
     <p class="hero-subtitle">
-      Streaming moves data. It does not reduce compute.
+      Moving events and using change to rebuild state are different jobs.
     </p>
 
     <p class="hero-description">
-      Kafka and streaming systems move events efficiently.  
-      Helix Compute Systems optimizes how that data is processed—eliminating unnecessary computation.
+      Kafka moves ordered events durably. Helix verifies and uses those changes to reconstruct exact receiver state.
     </p>
 
   </div>
@@ -97,94 +96,25 @@
 <section class="proof-section">
   <div class="section-inner narrow">
 
-    <!-- Core Difference -->
     <div class="card">
-      <h2>The difference</h2>
-
-      <p class="section-copy">
-        Kafka is an event streaming platform. It focuses on transporting data reliably and at scale.
-      </p>
-
-      <p class="section-copy" style="margin-top: 1rem;">
-        Helix operates at a different layer:
-        <strong>it determines whether computation needs to happen at all—and skips it when it doesn’t.</strong>
-      </p>
+      <h2>What does Kafka do?</h2>
+      <p class="section-copy">Kafka transports ordered events durably and at scale through a replayable log.</p>
     </div>
 
-    <!-- Key Difference -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>The key difference</h3>
-
-      <p class="section-copy">
-        Kafka ensures data arrives.  
-        Helix ensures you only process what changed.
-      </p>
+      <h3>What does Helix do?</h3>
+      <p class="section-copy">Helix verifies whether a received change can advance existing state and reconstruct an exact result.</p>
     </div>
 
-    <!-- What Kafka does -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>What Kafka does well</h3>
-
-      <ul style="
-        margin-top: 1rem;
-        line-height: 1.8;
-        color: var(--muted);
-        max-width: 360px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-      ">
-        <li>High-throughput event streaming</li>
-        <li>Decoupled system architecture</li>
-        <li>Durable, replayable event logs</li>
-        <li>Scalable real-time data pipelines</li>
-      </ul>
+      <h3>How can they work together?</h3>
+      <p class="section-copy">Kafka can carry events or Helix reconstruction data. Helix decides whether to accept the change, reconstruct the result, or use complete state.</p>
     </div>
 
-    <!-- Where Kafka stops -->
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>Where Kafka stops</h3>
-
-      <p class="section-copy">
-        Kafka moves events—but downstream systems still process large portions of data—even when most of it hasn’t changed.
-      </p>
-
-      <p class="section-copy" style="margin-top: 1rem;">
-        In many pipelines, compute is applied broadly rather than selectively.
-      </p>
-    </div>
-
-    <!-- Where Helix fits -->
-    <div class="card" style="margin-top: 1.5rem;">
-      <h3>Where Helix fits</h3>
-
-      <p class="section-copy">
-        Helix Compute Systems operates alongside streaming pipelines as a compute layer—executing only where change occurs.
-      </p>
-
-      <p class="section-copy" style="margin-top: 1rem;">
-        It complements Kafka by reducing the amount of work performed after data is delivered.
-      </p>
-    </div>
-
-    <!-- Result -->
-    <div class="card" style="margin-top: 1.5rem;">
-      <h3>The result</h3>
-
-      <ul style="
-        margin-top: 1rem;
-        line-height: 1.8;
-        color: var(--muted);
-        max-width: 360px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-      ">
-        <li>Significant reduction in compute overhead</li>
-        <li>More efficient streaming pipelines</li>
-        <li>Lower infrastructure cost</li>
-        <li>Faster downstream processing</li>
-      </ul>
+      <h3>Where can Helix reduce redundant work or data?</h3>
+      <p class="section-copy">When the receiver already has most of the state, Helix can move and apply the change instead of sending another complete representation.</p>
+      <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">See the evidence &rarr;</a></p>
     </div>
 
   </div>
