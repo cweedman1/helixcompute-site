@@ -2,28 +2,22 @@
 
 Public static website for Helix Compute Systems.
 
-The September 2026 content presents Helix through a simple principle: do more
-with less data by processing only what changed. Governed reconstruction is
-introduced at a high level after the compute-less, move-less, and store-less
-value is clear.
+The homepage presents Helix through a simple principle: do more with less data
+by preserving what remains valid and processing what changed.
 
-The homepage keeps three evidence classes separate:
+State Field V2 is a first-party, client-side conceptual playback. Its sparse,
+dense, and tampered scenes use illustrative work units and do not call a live
+service, run a benchmark, or depict private Core topology. Measured results
+remain separate and link to the public Helix evidence repository.
 
-1. the small deterministic live `/demo` fixture;
-2. bounded public evidence linked from the public Helix repository; and
-3. projected economics derived from frozen evidence profiles and sourced public
-   cloud list prices.
+The site stays deliberately static and dependency-free:
 
-The calculator does not convert logical operation counts into dollars. It uses
-measured application-byte ratios, applies provider tiers and free allowances at
-the account margin, and displays its date, region/destination, units,
-exclusions, and custom-rate status.
+- `style.css` owns the established site and brand system;
+- `state-field-v2.css` owns the namespaced interactive presentation;
+- `state-field-v2.js` owns playback, controls, and accessible state;
+- `state-field-v2-visualization.js` owns decorative Canvas rendering.
 
 ## Local check
 
-Serve this directory over HTTP so its dated JSON profiles can load. When the
-hostname is `localhost` or `127.0.0.1`, the page calls the governed demo at
-`http://127.0.0.1:8000/demo`; deployed pages call the Render endpoint.
-
-The existing stylesheet, assets, navigation, responsive rules, and dependencies
-remain unchanged.
+Serve this directory over HTTP so ES modules load under normal browser rules.
+The public homepage has no Render dependency and accepts no visitor data.

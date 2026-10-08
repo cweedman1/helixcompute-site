@@ -31,6 +31,7 @@
     href="assets/images/hero.webp"
     fetchpriority="high">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./state-field-v2.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,7 +80,7 @@
       <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">Validation</a>
       <a href="#compare">Compare</a>
       <a href="contact.html">Contact</a>
-      <a href="#live-proof">Demo</a>
+      <a href="#see-helix">See Helix</a>
     </div>
   </nav>
 </header>
@@ -104,9 +105,9 @@
     </p>
 
     <div class="hero-actions">
-      <button class="btn btn-primary" id="run-demo-btn">
-      Run the Demo
-      </button>
+      <a class="btn btn-primary" href="#see-helix">
+        See Helix
+      </a>
 
       <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" class="btn btn-secondary" target="_blank" rel="noopener">
         See the Evidence
@@ -117,6 +118,346 @@
       Compute less. Move less. Store less.
     </p>
 
+  </div>
+</section>
+
+<section class="sf-section" id="see-helix" aria-labelledby="sf-section-title">
+  <div class="sf-section-intro">
+    <div class="sf-section-copy">
+      <p class="sf-eyebrow">FULL vs HELIX &middot; conceptual playback</p>
+      <h2 id="sf-section-title">Watch the work.</h2>
+      <p>
+        Same established state. Same incoming transition. Watch how much of the system
+        each route actually has to touch.
+      </p>
+    </div>
+
+    <aside class="sf-playback-notice" aria-label="Simulation measurement boundary">
+      <span class="sf-notice-label">Illustrative&mdash;not measured</span>
+      <span>Work units are explanatory. They are not operations, rows, bytes, latency, or private topology.</span>
+    </aside>
+  </div>
+
+  <div
+    class="sf-prototype"
+    id="sf-state-field"
+    tabindex="-1"
+    data-act="sparse"
+    data-phase="established"
+    data-playback="idle"
+    aria-labelledby="sf-prototype-title">
+    <h3 class="sf-visually-hidden" id="sf-prototype-title">Interactive State Field V2 simulation</h3>
+
+    <div class="sf-prototype-toolbar">
+      <div class="sf-act-tabs" role="tablist" aria-label="Choose a transition scene">
+        <button
+          class="sf-act-tab sf-is-active"
+          id="sf-tab-sparse"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="sf-act-panel"
+          tabindex="0"
+          data-act-target="sparse">
+          <span class="sf-tab-number">01</span>
+          <span class="sf-tab-copy">Sparse <small>Preserve</small></span>
+        </button>
+        <button
+          class="sf-act-tab"
+          id="sf-tab-dense"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="sf-act-panel"
+          tabindex="-1"
+          data-act-target="dense">
+          <span class="sf-tab-number">02</span>
+          <span class="sf-tab-copy">Dense <small>Choose FULL</small></span>
+        </button>
+        <button
+          class="sf-act-tab"
+          id="sf-tab-tampered"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="sf-act-panel"
+          tabindex="-1"
+          data-act-target="tampered">
+          <span class="sf-tab-number">03</span>
+          <span class="sf-tab-copy">Tampered <small>Reject</small></span>
+        </button>
+      </div>
+
+      <div class="sf-playback-controls" role="group" aria-label="Visual playback controls">
+        <button class="sf-control-button" id="sf-replay-button" type="button">
+          <span class="sf-control-icon" aria-hidden="true">&#8635;</span>
+          <span>Replay</span>
+        </button>
+        <button
+          class="sf-control-button sf-primary-control"
+          id="sf-pause-button"
+          type="button"
+          aria-label="Run visual transition">
+          <span class="sf-control-icon sf-pause-icon" aria-hidden="true">&#9654;</span>
+          <span class="sf-pause-label">Run transition</span>
+        </button>
+        <div class="sf-speed-controls" role="group" aria-label="Visual playback speed">
+          <button type="button" data-speed="0.75" aria-label="0.75 times playback speed" aria-pressed="false">.75&times;</button>
+          <button class="sf-is-active" type="button" data-speed="1" aria-label="1 times playback speed" aria-pressed="true">1&times;</button>
+          <button type="button" data-speed="1.5" aria-label="1.5 times playback speed" aria-pressed="false">1.5&times;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf-mobile-scoreboard" aria-label="Current FULL and HELIX comparison">
+      <div class="sf-mobile-score sf-mobile-score-full">
+        <span id="sf-mobile-full-label">FULL WORK</span>
+        <strong id="sf-mobile-full-count">0</strong>
+        <small id="sf-mobile-full-unit">illustrative units</small>
+      </div>
+      <div class="sf-mobile-phase-block">
+        <span>NOW</span>
+        <strong id="sf-mobile-phase">Established</strong>
+      </div>
+      <div class="sf-mobile-score sf-mobile-score-helix">
+        <span id="sf-mobile-helix-label">HELIX WORK</span>
+        <strong id="sf-mobile-helix-count">0</strong>
+        <small id="sf-mobile-helix-unit">illustrative units</small>
+      </div>
+    </div>
+
+    <div class="sf-act-panel" id="sf-act-panel" role="tabpanel" aria-labelledby="sf-tab-sparse">
+      <header class="sf-act-heading">
+        <div class="sf-act-heading-copy">
+          <p class="sf-act-kicker" id="sf-act-kicker">ACT 01 &middot; SPARSE CHANGE</p>
+          <h3 id="sf-act-title">Preserve the established. Advance what the successor requires.</h3>
+          <p id="sf-act-description">
+            One change creates a bounded successor obligation. FULL revisits the field; HELIX follows the illustrated obligation corridor.
+          </p>
+        </div>
+
+        <div class="sf-visual-legend" aria-label="Visual language">
+          <span><i class="sf-legend-mark sf-retained" aria-hidden="true"></i> Retained predecessor state</span>
+          <span><i class="sf-legend-mark sf-physical" aria-hidden="true"></i> Physical change</span>
+          <span><i class="sf-legend-mark sf-obligation" aria-hidden="true"></i> Successor obligation</span>
+          <span><i class="sf-legend-mark sf-work" aria-hidden="true"></i> Work now</span>
+        </div>
+      </header>
+
+      <div
+        class="sf-stage"
+        tabindex="0"
+        role="region"
+        aria-label="Simulation stage. Left and Right Arrow keys change acts, Space pauses or resumes, and R replays.">
+        <div class="sf-stage-grid" aria-hidden="true"></div>
+        <div class="sf-stage-glow" aria-hidden="true"></div>
+
+        <ol class="sf-phase-rail" aria-label="Conceptual transition sequence">
+          <li data-phase-node="established"><span>01</span><strong>Established</strong></li>
+          <li data-phase-node="change"><span>02</span><strong>Change</strong></li>
+          <li data-phase-node="obligation"><span>03</span><strong>Obligation</strong></li>
+          <li data-phase-node="work"><span>04</span><strong>Work</strong></li>
+          <li data-phase-node="carry"><span>05</span><strong>Retain</strong></li>
+          <li data-phase-node="resolve"><span>06</span><strong>Resolve</strong></li>
+        </ol>
+
+        <div class="sf-shared-cause" aria-label="Shared input to both routes">
+          <div class="sf-cause-copy">
+            <span class="sf-cause-overline" id="sf-cause-overline">SAME STARTING POINT</span>
+            <strong id="sf-cause-title">Established state + one incoming change</strong>
+            <small id="sf-cause-detail">Physical change creates an illustrated 8-unit successor obligation</small>
+          </div>
+          <div class="sf-cause-signal" aria-hidden="true">
+            <span class="sf-signal-core"></span>
+            <span class="sf-signal-ring"></span>
+          </div>
+        </div>
+
+        <div class="sf-cinematic-frame">
+          <div class="sf-field-comparison">
+            <article class="sf-route sf-route-full" aria-labelledby="sf-full-route-title">
+              <header class="sf-route-header">
+                <div>
+                  <p class="sf-route-overline" id="sf-full-route-overline">COMPLETE-STATE ROUTE</p>
+                  <h3 id="sf-full-route-title">FULL</h3>
+                </div>
+                <span class="sf-route-status" id="sf-full-route-status">Established state</span>
+              </header>
+
+              <div class="sf-counter-block" aria-label="FULL work counter">
+                <span class="sf-counter-label" id="sf-full-counter-label">ILLUSTRATIVE WORK</span>
+                <strong class="sf-work-counter" id="sf-full-work-count">0</strong>
+                <span class="sf-counter-unit" id="sf-full-counter-unit">illustrative units</span>
+              </div>
+
+              <div class="sf-network-shell">
+                <canvas id="sf-full-network" aria-hidden="true"></canvas>
+                <div class="sf-canvas-corner sf-canvas-corner-top">CONCEPTUAL FIELD &middot; NOT CORE TOPOLOGY</div>
+                <div class="sf-canvas-corner sf-canvas-corner-bottom" id="sf-full-field-caption">1 cyan spark = 1 illustrative work unit</div>
+                <div class="sf-route-sweep" aria-hidden="true"></div>
+              </div>
+
+              <dl class="sf-route-totals">
+                <div>
+                  <dt id="sf-full-processed-label">Illustrative work</dt>
+                  <dd id="sf-full-processed">0</dd>
+                </div>
+                <div>
+                  <dt id="sf-full-carried-label">Depicted as retained</dt>
+                  <dd id="sf-full-carried">1,000</dd>
+                </div>
+                <div>
+                  <dt id="sf-full-complete-label">Complete state</dt>
+                  <dd id="sf-full-complete">1,000</dd>
+                </div>
+              </dl>
+            </article>
+
+            <div class="sf-comparison-spine" aria-hidden="true">
+              <span class="sf-spine-line"></span>
+              <span class="sf-spine-label">VS</span>
+              <span class="sf-spine-line"></span>
+            </div>
+
+            <article class="sf-route sf-route-helix" aria-labelledby="sf-helix-route-title">
+              <header class="sf-route-header">
+                <div>
+                  <p class="sf-route-overline" id="sf-helix-route-overline">RETAINED PREDECESSOR + SUCCESSOR WORK</p>
+                  <h3 id="sf-helix-route-title">HELIX</h3>
+                </div>
+                <span class="sf-route-status" id="sf-helix-route-status">Established state</span>
+              </header>
+
+              <div class="sf-counter-block" aria-label="HELIX work counter">
+                <span class="sf-counter-label" id="sf-helix-counter-label">ILLUSTRATIVE WORK</span>
+                <strong class="sf-work-counter" id="sf-helix-work-count">0</strong>
+                <span class="sf-counter-unit" id="sf-helix-counter-unit">illustrative units</span>
+              </div>
+
+              <div class="sf-network-shell">
+                <canvas id="sf-helix-network" aria-hidden="true"></canvas>
+                <div class="sf-canvas-corner sf-canvas-corner-top">CONCEPTUAL FIELD &middot; NOT CORE TOPOLOGY</div>
+                <div class="sf-canvas-corner sf-canvas-corner-bottom" id="sf-helix-field-caption">8 cyan sparks follow the illustrated corridor</div>
+                <div class="sf-admission-gate" id="sf-admission-gate" aria-hidden="true">
+                  <span class="sf-gate-door sf-gate-door-a"></span>
+                  <span class="sf-gate-door sf-gate-door-b"></span>
+                  <span class="sf-gate-core"></span>
+                </div>
+              </div>
+
+              <dl class="sf-route-totals">
+                <div>
+                  <dt id="sf-helix-processed-label">Illustrative work</dt>
+                  <dd id="sf-helix-processed">0</dd>
+                </div>
+                <div>
+                  <dt id="sf-helix-carried-label">Depicted as retained</dt>
+                  <dd id="sf-helix-carried">1,000</dd>
+                </div>
+                <div>
+                  <dt id="sf-helix-complete-label">Complete state</dt>
+                  <dd id="sf-helix-complete">1,000</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+
+          <section class="sf-climax" aria-labelledby="sf-climax-title">
+            <div class="sf-climax-beam sf-climax-beam-left" aria-hidden="true"></div>
+            <div class="sf-climax-beam sf-climax-beam-right" aria-hidden="true"></div>
+
+            <div class="sf-climax-route sf-climax-route-full">
+              <span id="sf-climax-full-label">FULL</span>
+              <strong id="sf-climax-full-main">1,000 illustrative units</strong>
+              <small id="sf-climax-full-sub">0 depicted as retained &middot; 1,000 complete</small>
+            </div>
+
+            <div class="sf-climax-seal">
+              <span class="sf-seal-orbit sf-seal-orbit-a" aria-hidden="true"></span>
+              <span class="sf-seal-orbit sf-seal-orbit-b" aria-hidden="true"></span>
+              <div>
+                <span class="sf-seal-kicker" id="sf-climax-kicker">CONCEPTUAL PLAYBACK</span>
+                <h3 id="sf-climax-title">SAME RESULT</h3>
+                <p id="sf-climax-detail">Illustrative paths; the same complete successor.</p>
+              </div>
+            </div>
+
+            <div class="sf-climax-route sf-climax-route-helix">
+              <span id="sf-climax-helix-label">HELIX</span>
+              <strong id="sf-climax-helix-main">8 illustrative units</strong>
+              <small id="sf-climax-helix-sub">992 depicted as retained &middot; 1,000 complete</small>
+            </div>
+          </section>
+        </div>
+
+        <dl class="sf-admission-summary" id="sf-admission-summary" aria-label="Tampered transition result" hidden>
+          <div>
+            <dt>Admission check</dt>
+            <dd id="sf-admission-check">Performed</dd>
+          </div>
+          <div>
+            <dt>Successor work</dt>
+            <dd id="sf-successor-work">0</dd>
+          </div>
+          <div>
+            <dt>Receiver mutation</dt>
+            <dd id="sf-receiver-mutation">None</dd>
+          </div>
+        </dl>
+
+        <section class="sf-route-economics" id="sf-route-economics" aria-labelledby="sf-economics-title">
+          <div class="sf-economics-copy">
+            <p id="sf-economics-overline">ILLUSTRATIVE ROUTE BURDEN</p>
+            <h3 id="sf-economics-title">Selective route stays below FULL.</h3>
+            <span id="sf-economics-note">This scene uses illustrative units&mdash;not a measured cost model.</span>
+          </div>
+          <div class="sf-economics-bars" aria-hidden="true">
+            <div class="sf-economics-row">
+              <span>FULL</span>
+              <div class="sf-economics-track"><i class="sf-economics-full"></i></div>
+              <strong id="sf-economics-full-value">1,000 i.u.</strong>
+            </div>
+            <div class="sf-economics-row">
+              <span>SELECTIVE</span>
+              <div class="sf-economics-track"><i class="sf-economics-selective"></i></div>
+              <strong id="sf-economics-selective-value">8 i.u.</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="sf-status-strip" aria-label="Current scene explanation">
+        <div>
+          <span>NOW</span>
+          <strong id="sf-phase-status">Established predecessor state is present on both routes.</strong>
+        </div>
+        <div>
+          <span>GREEN MEANS</span>
+          <strong>Green depicts retained predecessor state&mdash;not zero admission or validation cost.</strong>
+        </div>
+        <div>
+          <span>GEOMETRY</span>
+          <strong>Explanatory and not to scale; it does not depict Core internals.</strong>
+        </div>
+      </div>
+
+      <p class="sf-prototype-caption" id="sf-prototype-caption">
+        Conceptual playback only. Counts, paths, pacing, and route economics are illustrative&mdash;not measured execution.
+        Exactness language describes the recorded fixture outcome, not a universal guarantee.
+      </p>
+
+      <p class="sf-keyboard-hint">
+        <kbd>&larr;</kbd><kbd>&rarr;</kbd> change act &middot; <kbd>Space</kbd> pause &middot; <kbd>R</kbd> replay
+      </p>
+
+      <div class="sf-visually-hidden" id="sf-live-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
+  </div>
+
+  <div class="sf-closing-note" aria-labelledby="sf-closing-title">
+    <p class="sf-eyebrow">The operating principle</p>
+    <h2 id="sf-closing-title">Keep what remains valid. Process what changed.</h2>
+    <p>And when the route economics stop paying, choose FULL.</p>
   </div>
 </section>
 
@@ -142,31 +483,9 @@
   </div>
 </section>
 
-<section class="proof-section" id="live-proof">
-  <div class="section-inner">
-    <div class="proof-box">
-
-      <p class="eyebrow" style="text-align:center;">Live Proof</p>
-      <h2>Does it actually work?</h2>
-
-      <div id="demo-explainer" style="margin-bottom:16px; color:var(--muted);">
-        Run the public demo to watch Helix reduce the representation, verify the
-        change, and reconstruct the exact result.
-      </div>
-
-      <pre id="demo-output"></pre>
-
-      <div id="meaning-block" style="display:none; margin-top:24px; color:var(--muted); line-height:1.6;">
-        <strong>Helix verified the change before accepting it.</strong>
-      </div>
-
-    </div> <!-- proof-box -->
-  </div> <!-- section-inner -->
-</section>
-
 <section id="validation" class="how">
   <div class="section-inner">
-    <p class="eyebrow" style="text-align:center;">Measured Evidence</p>
+    <p class="eyebrow section-eyebrow">Measured Evidence</p>
     <h2>Measured, not theoretical.</h2>
 
     <p class="section-copy">
@@ -189,59 +508,24 @@
         <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/scaling.md" target="_blank" rel="noopener">Largest tested sparse-change estate.</a></p>
       </div>
 
-      <div class="card">
+      <div class="card validation-exactness-card">
         <h3>Exact reconstruction</h3>
         <p><a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">Across the cited validation campaigns.</a></p>
       </div>
     </div>
 
-    <p class="section-copy" style="margin-top:20px; margin-bottom:0;">
+    <p class="section-copy section-copy-last">
       Helix is designed for cases where change is smaller than state. When it is not, complete state may be the better representation.
     </p>
-    <p style="text-align:center; margin-top:20px;">
+    <p class="section-link">
       <a href="https://github.com/HelixComputeSystems/helixcompute-public/blob/main/evidence/README.md" target="_blank" rel="noopener">See the Evidence &rarr;</a>
     </p>
   </div>
 </section>
 
-<section class="proof-section">
-  <div class="section-inner">
-    <div class="proof-box" id="calculator-block">
-      <p class="eyebrow" style="text-align:center;">Projected Economics</p>
-      <h2>What could doing more with less data mean at your scale?</h2>
-      <p class="section-copy">Apply measured Helix byte reductions to your data volume and a published provider rate.</p>
-
-      <label for="expanded-usage">Your data volume</label>
-      <input id="expanded-usage" type="number" min="0" step="1" value="10000" style="width:100%; margin:6px 0 14px;">
-      <label for="calculator-kind">Data cost</label>
-      <select id="calculator-kind" style="width:100%; margin:6px 0 14px;">
-        <option value="transport">Monthly transport</option>
-        <option value="storage">Historical storage per month</option>
-      </select>
-      <label for="provider-profile">Provider</label>
-      <select id="provider-profile" style="width:100%; margin:6px 0 14px;"></select>
-      <label for="custom-rate">Optional custom rate (USD per displayed unit)</label>
-      <input id="custom-rate" type="number" min="0" step="0.000001" placeholder="Use sourced provider pricing" style="width:100%; margin:6px 0 14px;">
-
-      <div id="cost-output" aria-live="polite" style="margin-top:20px; font-family:monospace;"></div>
-
-      <details id="calculator-details" style="margin-top:18px; color:var(--muted); line-height:1.6;">
-        <summary>See calculation</summary>
-        <div style="margin-top:14px;">
-          <label for="evidence-profile">Measured evidence profile</label>
-          <select id="evidence-profile" style="width:100%; margin:6px 0 14px;"></select>
-          <label for="other-usage">Other account usage in the same billing dimension</label>
-          <input id="other-usage" type="number" min="0" step="1" value="0" style="width:100%; margin:6px 0 14px;">
-          <div id="cost-details-output" style="margin-top:12px; white-space:pre-wrap; font-family:monospace;"></div>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
 <section id="how" class="how">
   <div class="section-inner">
-    <p class="eyebrow" style="text-align:center;">How It Works</p>
+    <p class="eyebrow section-eyebrow">How It Works</p>
     <h2>Governed Reconstruction</h2>
 
     <p class="section-copy">
@@ -264,7 +548,7 @@
         <p>Reconstruct when appropriate. Fall back when it is not.</p>
       </div>
     </div>
-    <p style="text-align:center; margin-top:20px;">
+    <p class="section-link">
       <a href="https://github.com/HelixComputeSystems/helixcompute-public" target="_blank" rel="noopener">Explore Helix on GitHub &rarr;</a>
     </p>
   </div>
@@ -329,14 +613,14 @@
 <footer class="site-footer">
   <p>
   © Helix Compute Systems — A product of 
-  <a href="https://evo.engineering" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">
+  <a href="https://evo.engineering" target="_blank" rel="noopener">
     Evo Engineering
   </a><br>
   Structure-aware systems for computation, infrastructure, and control.
 </p>
 </footer>
 
-<script src="/app-2026-09-24.js"></script>
+<script src="/state-field-v2.js" type="module"></script>
 
 </body>
 </html>

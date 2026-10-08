@@ -289,12 +289,58 @@ pre {
   color: var(--muted);
 }
 
+@media (min-width: 901px) {
+  #validation .validation-exactness-card {
+    grid-column: 2;
+  }
+}
+
+.comparison-detail-card {
+  margin-top: 1.5rem;
+}
+
+.contact-email {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.contact-expectations {
+  max-width: 520px;
+  margin: 24px auto 0;
+}
+
+.contact-expectations h3 {
+  text-align: center;
+}
+
+.contact-expectations-list {
+  max-width: 320px;
+  margin: 16px auto 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
 .section-copy {
   margin: 0 auto 20px;
   color: var(--muted);
   text-align: center;
   max-width: 760px;
   font-size: 1.05rem;
+}
+
+.section-eyebrow,
+.section-link {
+  text-align: center;
+}
+
+.section-copy-last {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.section-link {
+  margin-top: 20px;
 }
 
 .use-list {
@@ -315,6 +361,11 @@ pre {
   text-align: center;
   color: var(--subtle);
   font-size: 0.92rem;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
